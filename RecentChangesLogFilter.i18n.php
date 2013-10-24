@@ -13,7 +13,7 @@ $messages = array();
  */
 $messages['en'] = array(
 	'recentchangeslogfilter-desc' => 'This extension filters log entries from [[Special:RecentChanges]]',
-	'recentchangeslogfilter-hidelogs' => '$1 all logs'
+	'recentchangeslogfilter-hidelogs' => '$1 user creation log'
 );
 
 /** German (Deutsch)
@@ -21,7 +21,7 @@ $messages['en'] = array(
  */
 $messages['de'] = array(
 	'recentchangeslogfilter-desc' => 'Diese Erweiterung filtert Logbuch-Einträge auf [[Spezial:Letzte_Änderungen]]',
-	'recentchangeslogfilter-hidelogs' => 'Alle Logbücher $1'
+	'recentchangeslogfilter-hidelogs' => 'Neuanmeldungs-Logbuch $1'
 );
 
 /** Message documentation
