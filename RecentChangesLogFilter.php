@@ -49,10 +49,16 @@ $wgHooks['SpecialRecentChangesFilters'][] = function( $special, &$filters ) {
  * @return true
  */
 $wgHooks['SpecialRecentChangesQuery'][] = function( &$conds, &$tables, &$join_conds, $opts, &$query_options, &$fields ) {
+	global $wgRecentChangesLogFilterTypes;
 	$dbr = wfGetDB( DB_SLAVE );
 
 	if ($opts['hidelogs']) {
-		$conds[] = '( rc_log_type IS NULL OR rc_log_type != ' . $dbr->addQuotes( 'newusers' ) . ' )';
+		$conditions = array();
+		foreach ($wgRecentChangesLogFilterTypes as $type) {
+			$conditions[] = 'rc_log_type != ' . $dbr->addQuotes( $type );
+		}
+
+		$conds[] = '( rc_log_type IS NULL OR ( ' . implode( ' AND ', $conditions ) . ' ) )';
 	}
 
 	return true;
