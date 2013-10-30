@@ -22,6 +22,10 @@ $wgExtensionCredits['other'][] = array(
 $dir = dirname( __FILE__ );
 $wgExtensionMessagesFiles['RecentChangesLogFilter'] = $dir . '/RecentChangesLogFilter.i18n.php';
 
+/**
+ * Default preferences
+ */
+$wgDefaultUserOptions['rchidelogs'] = 1;
 
 /**
  * Array of log types to filter by default. Default is `newusers`.
@@ -36,7 +40,20 @@ $wgRecentChangesLogFilterTypes = array( 'newusers' );
 $wgHooks['SpecialRecentChangesFilters'][] = function( $special, &$filters ) {
 	$filters['hidelogs'] = array(
 		'msg' => 'recentchangeslogfilter-hidelogs',
-		'default' => true
+		'default' => $special->getUser()->getBoolOption( 'rchidelogs' )
+	);
+
+	return true;
+};
+
+/**
+ * Add a user preference to allow setting the default behavior.
+ */
+$wgHooks['GetPreferences'][] = function( User $user, array &$preferences ) {
+	$preferences['rchidelogs'] = array(
+		'type' => 'toggle',
+		'label-message' => 'recentchangeslogfilter-pref',
+		'section' => 'rc/advancedrc',
 	);
 
 	return true;
