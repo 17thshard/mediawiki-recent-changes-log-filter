@@ -21,9 +21,25 @@ $messages['en'] = array(
  * @author Patrick Westerhoff
  */
 $messages['de'] = array(
-	'recentchangeslogfilter-desc' => 'Diese Erweiterung filtert Logbuch-Einträge auf [[Spezial:Letzte_Änderungen]]',
+	'recentchangeslogfilter-desc' => 'Diese Erweiterung filtert Logbuch-Einträge auf [[Spezial:Letzte Änderungen]]',
 	'recentchangeslogfilter-hidelogs' => 'Neuanmeldungs-Logbuch $1',
 	'recentchangeslogfilter-pref' => 'Neuanmeldungs-Logbucheinträge in den „Letzten Änderungen“ ausblenden'
+);
+
+/** French (français)
+ */
+$messages['fr'] = array(
+	'recentchangeslogfilter-desc' => 'Cette extension filter les entrées de journeaux de [[Spécial:Modifications récentes]]',
+	'recentchangeslogfilter-hidelogs' => '$1 le journal des créations de comptes utilisateur',
+	'recentchangeslogfilter-pref' => 'Masquer le journal des créations de comptes utilisateur dans les modifications récentes'
+);
+
+/** Spanish (español)
+ */
+$messages['es'] = array(
+	'recentchangeslogfilter-desc' => 'Esta extensión filtra las entradas de los registros de [[Especial:CambiosRecientes]].',
+	'recentchangeslogfilter-hidelogs' => '$1 registro de creación de usuarios',
+	'recentchangeslogfilter-pref' => 'Ocultar registro de creación de usuarios en la lista de cambios recientes'
 );
 
 /** Message documentation
