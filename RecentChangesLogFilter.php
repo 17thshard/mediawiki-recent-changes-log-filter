@@ -15,7 +15,7 @@ $wgExtensionCredits['other'][] = array(
 	'name' => 'RecentChangesLogFilter',
 	'author' => 'Patrick Westerhoff',
 	'descriptionmsg' => 'recentchangeslogfilter-desc',
-	'version'  => 1.0,
+	'version'  => 1.1,
 );
 
 /* Extension setup */
