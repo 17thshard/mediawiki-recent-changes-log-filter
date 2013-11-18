@@ -69,6 +69,11 @@ $wgHooks['SpecialRecentChangesQuery'][] = function( &$conds, &$tables, &$join_co
 	global $wgRecentChangesLogFilterTypes;
 	$dbr = wfGetDB( DB_SLAVE );
 
+	if (!$opts->validateName('hidelogs')) {
+		global $wgDefaultUserOptions;
+		$opts->add('hidelogs', $wgDefaultUserOptions['rchidelogs']);
+	}
+
 	if ($opts['hidelogs']) {
 		$conditions = array();
 		foreach ($wgRecentChangesLogFilterTypes as $type) {
