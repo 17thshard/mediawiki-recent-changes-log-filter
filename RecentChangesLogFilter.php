@@ -21,7 +21,7 @@ $wgExtensionCredits['other'][] = array(
 /* Extension setup */
 $dir = dirname( __FILE__ );
 $wgAutoloadClasses['RecentChangesLogFilterHooks'] = $dir . '/RecentChangesLogFilter.hooks.php';
-$wgExtensionMessagesFiles['RecentChangesLogFilter'] = $dir . '/RecentChangesLogFilter.i18n.php';
+$wgMessagesDirs['RecentChangesLogFilter'] = $dir . '/i18n';
 
 /**
  * Default preferences
