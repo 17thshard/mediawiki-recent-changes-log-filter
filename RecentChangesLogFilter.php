@@ -1,39 +1,19 @@
 <?php
 /**
- * RecentChangesLogFilter extension
- *
- * @file
- * @ingroup Extensions
- * @author Patrick Westerhoff <PatrickWesterhoff@gmail.com>
+ * RecentChangesLogFilter extension.
  */
-if ( !defined( 'MEDIAWIKI' ) ) {
-	die();
+if ( function_exists( 'wfLoadExtension' ) ) {
+	wfLoadExtension( 'RecentChangesLogFilter' );
+
+	// Keep i18n globals so mergeMessageFileList.php doesn’t break
+	$wgMessagesDirs['RecentChangesLogFilter'] = __DIR__ . '/i18n';
+
+	wfWarn(
+		'Deprecated PHP entry point used for RecentChangesLogFilter extension. ' .
+		'Please use wfLoadExtension instead, ' .
+		'see https://www.mediawiki.org/wiki/Extension_registration for more details.'
+	);
+	return;
+} else {
+	die( 'This version of the RecentChangesLogFilter extension requires MediaWiki 1.25+' );
 }
-
-$wgExtensionCredits['other'][] = array(
-	'path' => __FILE__,
-	'name' => 'RecentChangesLogFilter',
-	'author' => 'Patrick Westerhoff',
-	'descriptionmsg' => 'recentchangeslogfilter-desc',
-	'version'  => 1.2,
-);
-
-/* Extension setup */
-$dir = dirname( __FILE__ );
-$wgAutoloadClasses['RecentChangesLogFilterHooks'] = $dir . '/RecentChangesLogFilter.hooks.php';
-$wgMessagesDirs['RecentChangesLogFilter'] = $dir . '/i18n';
-
-/**
- * Default preferences
- */
-$wgDefaultUserOptions['rchidelogs'] = 1;
-
-/**
- * Array of log types to filter by default. Default is `newusers`.
- */
-$wgRecentChangesLogFilterTypes = array( 'newusers' );
-
-/* Extension hooks */
-$wgHooks['SpecialRecentChangesFilters'][] = 'RecentChangesLogFilterHooks::onSpecialRecentChangesFilters';
-$wgHooks['GetPreferences'][] = 'RecentChangesLogFilterHooks::onGetPreferences';
-$wgHooks['SpecialRecentChangesQuery'][] = 'RecentChangesLogFilterHooks::onSpecialRecentChangesQuery';

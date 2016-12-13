@@ -8,15 +8,15 @@ The filter is enabled by default and can be disabled at any time using the confi
 
 ## Installation
 
-To install this extension, extract the extension’s files into a folder `RecentChangesLogFilter` in the `extensions` directory and add the following line to `LocalSettings.php`:
+To install this extension, extract the extension’s files into a folder `RecentChangesLogFilter` in the `extensions/` directory and add the following line at the bottom of your [`LocalSettings.php`](https://mediawiki.org/wiki/Manual:LocalSettings.php):
 
-    require_once( "$IP/extensions/RecentChangesLogFilter/RecentChangesLogFilter.php" );
+    wfLoadExtension( 'RecentChangesLogFilter' );
 
 ## Configuration
 
-By default, the only log type that is hidden is the user creation type `newuser`. It is possible to change this behaviour by modifying the `$wgRecentChangesLogFilterTypes` configuration variable. It is also possible to hide more than just one log type.
+By default, the only log type that is hidden is the user creation type `newuser`. It is possible to change this behaviour by modifying the `$wgRecentChangesLogFilterTypes` configuration variable after the `wfLoadExtension` line. It is also possible to hide more than just one log type.
 
-For example to hide uploads instead of user creations, set the configuration variable like this:
+For example, to hide uploads instead of user creations, set the configuration variable like this:
 
     $wgRecentChangesLogFilterTypes = array( 'upload' );
 
@@ -34,6 +34,6 @@ The default behavior is to have the filter activated and hide log entries from r
 
 ### Messages
 
-When changing the types to hide, it is recommend to also change the system message *MediaWiki:Recentchangeslogfilter-hidelogs*, which is responsible for the link that is displayed on *Special:RecentChanges*, to match the new behavior. By default it will only mention user creation logs to match the default configuration. For example when hiding block and page protections like above, you might want to set it to *“$1 block and protection logs”*.
+When changing the types to hide, it is recommend to also change the system message *MediaWiki:Recentchangeslogfilter-hidelogs*, which is responsible for the link that is displayed on *Special:RecentChanges*, to match the new behavior. By default it will only mention user creation logs to match the default configuration. For example, when hiding block and page protections like above, you might want to set it to *“$1 block and protection logs”*.
 
 Similarly, *MediaWiki:Recentchangeslogfilter-pref* is responsible for the preferences text and should be adjusted as well.
