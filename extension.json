@@ -22,9 +22,9 @@
 	},
 
 	"Hooks": {
-		"GetPreferences": "RecentChangesLogFilterHooks::onGetPreferences",
-		"SpecialRecentChangesFilters": "RecentChangesLogFilterHooks::onSpecialRecentChangesFilters",
-		"SpecialRecentChangesQuery": "RecentChangesLogFilterHooks::onSpecialRecentChangesQuery"
+		"ChangesListSpecialPageFilters": "RecentChangesLogFilterHooks::onChangesListSpecialPageFilters",
+		"ChangesListSpecialPageQuery": "RecentChangesLogFilterHooks::onChangesListSpecialPageQuery",
+		"GetPreferences": "RecentChangesLogFilterHooks::onGetPreferences"
 	},
 
 	"DefaultUserOptions": {
