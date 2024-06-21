@@ -1,0 +1,14 @@
+{
+        "name": "mediawiki/recent-changes-log-filter",
+        "type": "mediawiki-extension",
+        "description": "Allows filtering log entries on Special:RecentChanges",
+        "license" : "MPL-2.0+",
+        "require": {
+                "composer/installers": ">=1.0.1"
+        },
+        "config": {
+                "allow-plugins": {
+                        "composer/installers": true
+                }
+        }
+}
