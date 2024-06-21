@@ -46,7 +46,7 @@ class RecentChangesLogFilterHooks {
 		}
 
 		global $wgRecentChangesLogFilterTypes;
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		if (!$opts->validateName('hidelogs')) {
 			global $wgDefaultUserOptions;
